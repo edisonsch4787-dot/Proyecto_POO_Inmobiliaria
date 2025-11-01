@@ -11,11 +11,13 @@ public class Visita {
     private LocalDate fechaVisita;
     private LocalTime horaVisita;
     
-    public Visita(int id, Cliente cliente, LocalDate fecha, LocalTime hora, String obs){
+    public Visita(int id, Cliente cliente, Propiedad propiedad, AgenteInmobiliario agente ,LocalDate fecha, LocalTime hora){
         this.cliente=cliente;
+        this.propiedad=propiedad;
         this.fechaVisita=fecha;
         this.horaVisita=hora;
         this.id=id;
+        this.agente=agente;
     }
     //getters y setters
     public int getId(){

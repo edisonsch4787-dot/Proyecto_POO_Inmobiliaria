@@ -20,7 +20,8 @@ public class Contrato {
     private TipoContrato tipo;
     private boolean activo;
 
-    public Contrato(int id, Cliente cliente, Propiedad propiedad, LocalDate fechaInicio, LocalDate fechaFin, double monto, TipoContrato tipo) {
+    public Contrato(int id, Cliente cliente, Propiedad propiedad, LocalDate fechaInicio,
+                    LocalDate fechaFin, double monto, TipoContrato tipo) {
         this.id = id;
         this.cliente = cliente;
         this.propiedad = propiedad;
@@ -44,6 +45,12 @@ public class Contrato {
     }
     public void finalizarContrato(){
         activo=false;
+        if(tipo==TipoContrato.VENTA){
+            propiedad.actualizarEstadoP(Propiedad.EstadoPropiedad.VENDIDA);
+        }else{
+            propiedad.actualizarEstadoP(Propiedad.EstadoPropiedad.ALQUILADA);
+        }
+        agente.sumarComision(calcularComision());
         System.out.println("Contrato finalizado");
     }
     @Override
