@@ -32,7 +32,7 @@ public class Contrato {
     }
     public double calcularComision(){
         double comision=propiedad.getPrecio();
-        if(tipo==TipoContrato.VENTA){
+        if(TipoContrato.VENTA.equals(tipo)){
             comision*=0.03;
             return comision;
         }else if(tipo==TipoContrato.ALQUILER){
@@ -44,12 +44,14 @@ public class Contrato {
     }
     public void finalizarContrato(){
         activo=false;
-        
+        System.out.println("Contrato finalizado");
     }
     @Override
     public String toString(){
-        return "Contrato#: "+id+"| tipo: "+tipo+"| Cliente: "+cliente.getNombre()+
-                "| Propiedad: "+propiedad.getDireccion();
+        return String.format("ID Contrato: %03d%nCliente: %s "
+                + "%nAgente: %s %nPropiedad: %s %nInicio: "+fechaInicio+
+                "%nFin: "+fechaFin+"%nMonto: %.2f %nTipo: "+tipo,
+                id,cliente.getNombre(),agente.getNombre(),propiedad.getDireccion(),monto);
     }
     
 }

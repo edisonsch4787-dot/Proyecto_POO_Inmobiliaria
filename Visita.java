@@ -10,29 +10,30 @@ public class Visita {
     private Propiedad propiedad;
     private LocalDate fechaVisita;
     private LocalTime horaVisita;
-    private String observaciones;
     
     public Visita(int id, Cliente cliente, LocalDate fecha, LocalTime hora, String obs){
         this.cliente=cliente;
         this.fechaVisita=fecha;
         this.horaVisita=hora;
         this.id=id;
-        this.observaciones=obs;
     }
     //getters y setters
-    public String getObs(){
-        return observaciones;
-    }
     public int getId(){
         return id;
     }
-    public void registrarObservacion(String txt){
-        observaciones=txt;
+    public void setId(int i){
+        if(i>0){
+            id=i;
+        }else{
+            System.out.println("Id ingresado no valido");
+        }
     }
     @Override
     public String toString(){
-        return "Id visita: "+id+"\nCliente: "+cliente.getNombre()+
-                "\nPropiedad: "+propiedad.getDireccion()+"\nFecha visita: "
-                +fechaVisita+"\nObservaciones: "+observaciones;
+        return "Visita ID: "+id+
+                "\nCliente: "+cliente.getNombre()+
+                "\nPropiedad: "+propiedad.getDireccion()+
+                "\nFecha visita: "+fechaVisita+
+                "\nHora: "+horaVisita;
     }
 }

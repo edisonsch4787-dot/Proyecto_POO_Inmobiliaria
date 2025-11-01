@@ -33,7 +33,7 @@ public class Main {
             switch(op){
                 case 1://Pendiente revisar
                     System.out.printf("Ha elegido la opción de registrar cliente%n");
-                    Persona p1=new Cliente("1","","","","","",null,null);
+                    Persona p1=new Cliente(0,"","","","");
                     System.out.println("Ingrese el nombre del cliente");
                     String nombre=sc.nextLine();
                     System.out.println("Ingrese numero de cedula");
@@ -42,6 +42,8 @@ public class Main {
                     String tel=sc.nextLine();
                     p1.setNombre(nombre);
                     p1.setCi(Ci);
+                    
+                    
                     break;
                 case 2:
                     break;
