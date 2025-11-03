@@ -286,8 +286,159 @@ public class Main {
                     }
                     break;
                 case 6:
+                    if (agencia.getClientes().isEmpty() || agencia.getAgentes().isEmpty() || agencia.getPropiedades().isEmpty()) {
+                        System.out.println("⚠️ Debe haber al menos un cliente, un agente y una propiedad registrada antes de crear un contrato.");
+                        break;
+                    }
+
+                    System.out.println("=== Registrar contrato de venta ===");
+                
+                    // --- Seleccionar Cliente ---
+                    System.out.println("\nClientes disponibles:");
+                    for (int i = 0; i < agencia.getClientes().size(); i++) {
+                        System.out.println((i + 1) + ". " + agencia.getClientes().get(i).getNombre());
+                    }
+                    System.out.print("Seleccione cliente: ");
+                    int idxCliente = Integer.parseInt(sc.nextLine()) - 1;
+                    Cliente cliente = agencia.getClientes().get(idxCliente);
+                
+                    // --- Seleccionar Agente ---
+                    System.out.println("\nAgentes disponibles:");
+                    for (int i = 0; i < agencia.getAgentes().size(); i++) {
+                        System.out.println((i + 1) + ". " + agencia.getAgentes().get(i).getNombre());
+                    }
+                    System.out.print("Seleccione agente: ");
+                    int idxAgente = Integer.parseInt(sc.nextLine()) - 1;
+                    AgenteInmobiliario agente = agencia.getAgentes().get(idxAgente);
+                
+                    // --- Seleccionar Propiedad ---
+                    System.out.println("\nPropiedades disponibles:");
+                    List<Propiedad> disponibles = new ArrayList<>();
+                    for (Propiedad p : agencia.getPropiedades()) {
+                        if (p.getEstado() == EstadoPropiedad.DISPONIBLE) {
+                            disponibles.add(p);
+                        }
+                    }
+                
+                    if (disponibles.isEmpty()) {
+                        System.out.println("No hay propiedades disponibles para vender.");
+                        break;
+                    }
+                
+                    for (int i = 0; i < disponibles.size(); i++) {
+                        System.out.println((i + 1) + ". " + disponibles.get(i).toString());
+                    }
+                
+                    System.out.print("Seleccione propiedad: ");
+                    int idxProp = Integer.parseInt(sc.nextLine()) - 1;
+                    Propiedad propiedad = disponibles.get(idxProp);
+                
+                    // --- Datos del contrato ---
+                    System.out.print("Ingrese el monto de venta: ");
+                    double monto = Double.parseDouble(sc.nextLine());
+                
+                    LocalDate fechaInicio = LocalDate.now();
+                
+                    Contrato contrato = new Contrato(
+                        agencia.getContratos().size() + 1,
+                        cliente,
+                        agente,
+                        propiedad,
+                        fechaInicio,
+                        null, // sin fecha fin en una venta
+                        monto,
+                        TipoContrato.VENTA,
+                        true
+                    );
+                
+                    agencia.registrarContrato(contrato);
+                    propiedad.cambiarEstado(EstadoPropiedad.VENDIDA);
+                    agente.sumarComision(contrato);
+                
+                    System.out.println("\n Contrato registrado con éxito:");
+                    System.out.println(contrato.toString());
                     break;
                 case 7:
+                    if (agencia.getClientes().isEmpty() || agencia.getAgentes().isEmpty() || agencia.getPropiedades().isEmpty()) {
+                        System.out.println(" Debe haber al menos un cliente, un agente y una propiedad registrada antes de crear un contrato.");
+                        break;
+                    }
+                
+                    System.out.println("=== Registrar contrato de alquiler ===");
+                
+                    // --- Seleccionar Cliente ---
+                    System.out.println("\nClientes disponibles:");
+                    for (int i = 0; i < agencia.getClientes().size(); i++) {
+                        System.out.println((i + 1) + ". " + agencia.getClientes().get(i).getNombre());
+                    }
+                    System.out.print("Seleccione cliente: ");
+                    int idxClienteAlq = Integer.parseInt(sc.nextLine()) - 1;
+                    Cliente clienteAlq = agencia.getClientes().get(idxClienteAlq);
+                
+                    // --- Seleccionar Agente ---
+                    System.out.println("\nAgentes disponibles:");
+                    for (int i = 0; i < agencia.getAgentes().size(); i++) {
+                        System.out.println((i + 1) + ". " + agencia.getAgentes().get(i).getNombre());
+                    }
+                    System.out.print("Seleccione agente: ");
+                    int idxAgenteAlq = Integer.parseInt(sc.nextLine()) - 1;
+                    AgenteInmobiliario agenteAlq = agencia.getAgentes().get(idxAgenteAlq);
+                
+                    // --- Seleccionar Propiedad ---
+                    System.out.println("\nPropiedades disponibles para alquiler:");
+                    List<Propiedad> disponiblesAlq = new ArrayList<>();
+                    for (Propiedad p : agencia.getPropiedades()) {
+                        if (p.getEstado() == EstadoPropiedad.DISPONIBLE) {
+                            disponiblesAlq.add(p);
+                        }
+                    }
+                
+                    if (disponiblesAlq.isEmpty()) {
+                        System.out.println(" No hay propiedades disponibles para alquilar.");
+                        break;
+                    }
+                
+                    for (int i = 0; i < disponiblesAlq.size(); i++) {
+                        System.out.println((i + 1) + ". " + disponiblesAlq.get(i).toString());
+                    }
+                
+                    System.out.print("Seleccione propiedad: ");
+                    int idxPropAlq = Integer.parseInt(sc.nextLine()) - 1;
+                    Propiedad propiedadAlq = disponiblesAlq.get(idxPropAlq);
+                
+                    // --- Datos del contrato ---
+                    System.out.print("Ingrese el monto mensual de alquiler: ");
+                    double montoAlq = Double.parseDouble(sc.nextLine());
+                
+                    System.out.print("Ingrese la duración del contrato en meses: ");
+                    int meses = Integer.parseInt(sc.nextLine());
+                
+                    LocalDate fechaInicioAlq = LocalDate.now();
+                    LocalDate fechaFinAlq = fechaInicioAlq.plusMonths(meses);
+                
+                    // Crear contrato
+                    Contrato contratoAlq = new Contrato(
+                        agencia.getContratos().size() + 1,
+                        clienteAlq,
+                        agenteAlq,
+                        propiedadAlq,
+                        fechaInicioAlq,
+                        fechaFinAlq,
+                        montoAlq,
+                        TipoContrato.ALQUILER,
+                        true
+                    );
+                
+                    // Registrar en la agencia
+                    agencia.registrarContrato(contratoAlq);
+                    propiedadAlq.cambiarEstado(EstadoPropiedad.ALQUILADA);
+                    agenteAlq.sumarComision(contratoAlq);
+                
+                    System.out.println("\n Contrato de alquiler registrado con éxito:");
+                    System.out.println(contratoAlq.toString());
+                
+                    break;
+
                     break;
                 case 8:
                     break;
