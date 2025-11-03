@@ -34,19 +34,21 @@ public class Main {
                 case 1://Pendiente revisar
                     String op1="2";
                     while(!"N".equals(op1)){
-                        Persona p1=new Cliente(0,"nombre","cedula","telf");
+                        Persona p1=new Cliente(0,"nombre","cedula");
                         System.out.println("Ingrese el nombre del cliente");
                         String nombre=sc.nextLine();
                         System.out.println("Ingrese numero de cedula");
                         String Ci=sc.nextLine();
-                        System.out.println("Ingrese su numero de telefono ");
-                        String tel=sc.nextLine();
+                        
                         p1.setNombre(nombre);
                         p1.setCi(Ci);
-                        ((Cliente)p1).setTelf(tel);
                         System.out.println(((Cliente)p1).toString());
-                        if(){
-                            
+                        
+                        //Validaciones
+                        if(a1.getClientes().contains(nombre)){
+                            System.out.println("Cliente ya registrado");
+                        }else{
+                            a1.registrarCliente(p1.getNombre());
                         }
                         System.out.println("Desea seguir registrando? (S/N)");
                         op1=sc.nextLine().toUpperCase();
