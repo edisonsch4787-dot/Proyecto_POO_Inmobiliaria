@@ -29,7 +29,7 @@ public class Main {
             System.out.println("Elija una opción: ");
             op=sc.nextInt();
             sc.nextLine();
-            
+            Agencia a1=new Agencia("Inmobiliaria");
             switch(op){
                 case 1://Pendiente revisar
                     String op1="2";
@@ -45,6 +45,9 @@ public class Main {
                         p1.setCi(Ci);
                         ((Cliente)p1).setTelf(tel);
                         System.out.println(((Cliente)p1).toString());
+                        if(){
+                            
+                        }
                         System.out.println("Desea seguir registrando? (S/N)");
                         op1=sc.nextLine().toUpperCase();
                     }
