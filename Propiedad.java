@@ -6,12 +6,6 @@ package proyectopoo_inmobiliaria;
 
 public class Propiedad{
     
-    public enum EstadoPropiedad{
-        DISPONIBLE,
-        EN_NEGOCIACION,
-        VENDIDA,
-        ALQUILADA
-    }
     
     private String idPropiedad;
     private String direccion;
@@ -43,8 +37,7 @@ public class Propiedad{
     }
     @Override
     public String toString(){
-        return "Propiedad{"+
-                "ID: "+idPropiedad+"\nDireccion: "+direccion
+        return  "ID: "+idPropiedad+"\nDireccion: "+direccion
                 +"\nPrecio: "+precio+"\nEstado: "+estado;
     }
     

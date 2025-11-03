@@ -4,16 +4,18 @@
  */
 package proyectopoo_inmobiliaria;
 
-public class Departamento {
+public class Departamento extends Propiedad{
     private int piso;
     private int numHabitaciones;
     private boolean tieneAscensor;
     
-    public Departamento(int p, int Habs){
+    public Departamento(int p, int Habs, String idP, String dir, double precio){
+        super(idP,dir,precio);
         this.piso=p;
         this.numHabitaciones=Habs;
         this.tieneAscensor=false;
     }
+    
     public int getPiso(){
         return piso;
     }
@@ -32,6 +34,6 @@ public class Departamento {
     }
     @Override
     public String toString(){
-        return String.format("");
+        return String.format("%nDepartamento: %s |Piso: %d |Tiene ascensor: %b",super.toString(),piso,tieneAscensor);
     }
 }

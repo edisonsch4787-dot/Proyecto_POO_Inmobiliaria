@@ -46,9 +46,9 @@ public class Contrato {
     public void finalizarContrato(){
         activo=false;
         if(tipo==TipoContrato.VENTA){
-            propiedad.actualizarEstadoP(Propiedad.EstadoPropiedad.VENDIDA);
+            propiedad.actualizarEstadoP(EstadoPropiedad.VENDIDA);
         }else{
-            propiedad.actualizarEstadoP(Propiedad.EstadoPropiedad.ALQUILADA);
+            propiedad.actualizarEstadoP(EstadoPropiedad.ALQUILADA);
         }
         agente.sumarComision(calcularComision());
         System.out.println("Contrato finalizado");
