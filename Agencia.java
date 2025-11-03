@@ -21,18 +21,31 @@ public class Agencia {
         this.propiedades=new ArrayList<>();
         this.visitas=new ArrayList<>();
     }
-    public ArrayList getClientes(){
-        return clientes;
+
+    public String getNombre() {
+        return nombre;
     }
-    public ArrayList getPropiedades(){
+
+    public ArrayList<Propiedad> getPropiedades() {
         return propiedades;
     }
-    public ArrayList getAgentes(){
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public ArrayList<AgenteInmobiliario> getAgentes() {
         return agentes;
     }
-    public ArrayList getContratos(){
+
+    public ArrayList<Contrato> getContratos() {
         return contratos;
     }
+
+    public ArrayList<Visita> getVisitas() {
+        return visitas;
+    }
+    
     public void registrarPropiedad(Propiedad p){
         propiedades.add(p);
     }

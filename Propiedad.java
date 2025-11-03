@@ -7,12 +7,12 @@ package proyectopoo_inmobiliaria;
 public class Propiedad{
     
     
-    private String idPropiedad;
+    private int idPropiedad;
     private String direccion;
     private double precio;
     private EstadoPropiedad estado;
 
-    public Propiedad(String idPropiedad, String direccion, double precio) {
+    public Propiedad(int idPropiedad, String direccion, double precio) {
         this.idPropiedad = idPropiedad;
         this.direccion = direccion;
         this.precio = precio;

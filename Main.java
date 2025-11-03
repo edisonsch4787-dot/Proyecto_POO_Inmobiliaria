@@ -39,7 +39,8 @@ public class Main {
                         String nombre=sc.nextLine();
                         System.out.println("Ingrese numero de cedula");
                         String Ci=sc.nextLine();
-                        
+                        int id=1;
+                        p1.setId(id);
                         p1.setNombre(nombre);
                         p1.setCi(Ci);
                         System.out.println(((Cliente)p1).toString());
@@ -48,10 +49,13 @@ public class Main {
                         if(a1.getClientes().contains(nombre)){
                             System.out.println("Cliente ya registrado");
                         }else{
-                            a1.registrarCliente(p1.getNombre());
+                            a1.registrarCliente((Cliente) p1);
                         }
                         System.out.println("Desea seguir registrando? (S/N)");
                         op1=sc.nextLine().toUpperCase();
+                        System.out.println("Clientes registrados");
+                        System.out.println(a1.getClientes());
+                        id+=1;
                     }
                     
                     break;

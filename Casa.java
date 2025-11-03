@@ -5,6 +5,30 @@
 package proyectopoo_inmobiliaria;
 
 
-public class Casa {
-    
+public class Casa extends Propiedad {
+    private int numHab;
+    private boolean tieneGarage;
+
+    public Casa(int numHab, int idP, String dir, double precio) {
+        super(idP, dir, precio);
+        this.numHab = numHab;
+        this.tieneGarage = false;
+    }
+    public int getNumHabitaciones(){
+        return numHab;
+    }
+    public boolean getTieneGarage(){
+        return tieneGarage;
+    }
+    public void actualizar_tieneGarage(){
+        if(tieneGarage==true){
+            tieneGarage=false;
+        }else{
+            tieneGarage=true;
+        }
+    }
+    @Override
+    public String toString(){
+        return String.format("%s%nNumero habitaciones: %d%n Tiene garage: %b",super.toString(),numHab,tieneGarage);
+    }  
 }
