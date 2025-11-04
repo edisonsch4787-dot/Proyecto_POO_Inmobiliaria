@@ -53,7 +53,7 @@ public class Main {
         } while (opcion != 12);
     }
 
-    // 1️⃣ Registrar Cliente
+
     private static void registrarCliente(Scanner sc, Agencia agencia) throws Exception {
         System.out.print("Ingrese ID: ");
         String id = sc.nextLine();
