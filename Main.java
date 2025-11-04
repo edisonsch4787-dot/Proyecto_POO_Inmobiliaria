@@ -158,7 +158,7 @@ public class Main {
     }
 
     //Registar contrato
-    private static void registrarContrato(Scanner sc,Agencia agencia, TipoContrato tipo) throws Exception {
+    private static void registrarContrato(Scanner sc,Agencia agencia, TipoContrato tip) throws Exception {
         System.out.print("ID contrato: ");
         int id = Integer.parseInt(sc.nextLine());
         System.out.print("CI del cliente: ");
@@ -176,9 +176,9 @@ public class Main {
         if (cliente == null || agente == null || propiedad == null)
             throw new Exception("Error: cliente, agente o propiedad no encontrados.");
 
-        Contrato contrato = new Contrato(id, cliente, propiedad, agente, LocalDate.now(), null, monto, tipo);
+        Contrato contrato = new Contrato(id, cliente, propiedad, agente, LocalDate.now(), null, monto, tip);
         agencia.registrarContrato(contrato);
-        System.out.println("Contrato de " + tipo + " registrado correctamente.");
+        System.out.println("Contrato de " + tip + " registrado correctamente.");
     }
 
     // 8️⃣ Agendar visita

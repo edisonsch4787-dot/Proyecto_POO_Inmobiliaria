@@ -121,7 +121,7 @@ public class Agencia {
             c.getPropiedad().actualizarEstadoP(EstadoPropiedad.ALQUILADA);
 
         contratos.add(c);
-        System.out.println("✅ Contrato registrado exitosamente.");
+        System.out.println("Contrato registrado exitosamente.");
     }
     //Metodos Visitas
     public void registrarVisita(Visita v){

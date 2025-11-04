@@ -7,14 +7,6 @@ import java.time.LocalDate;
 
 public class Contrato {
 
-    Contrato(int id, Cliente cliente, Propiedad propiedad, AgenteInmobiliario agente, LocalDate now, Object object, double monto, proyectopoo_inmobiliaria.TipoContrato tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public enum TipoContrato{
-        VENTA,
-        ALQUILER
-    }
     private int id;
     private Cliente cliente;
     private AgenteInmobiliario agente;
