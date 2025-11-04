@@ -1,0 +1,158 @@
+@startuml
+title Sistema de Administración Inmobiliaria
+
+enum EstadoPropiedad {
+    DISPONIBLE
+    EN_NEGOCIACION
+    VENDIDA
+    ALQUILADA
+}
+
+enum TipoContrato {
+    VENTA
+    ALQUILER
+}
+
+
+abstract class Persona {
+    - id : String
+    - nombre : String
+    - ci : String
+    + getId(): int
+    + getNombre(): String
+    + getCi(): String
+    + setId(n: int): void
+    + setNombre(nombre: String): void
+    + setCi(c: String): void
+    + toString() : String
+}
+
+class Cliente {
+    - visitasRealizadas : List<Visita>
+    +getVisitas: List<Visita>
+    + registrarVisita(v : Visita) : void
+    + toString() : String
+}
+
+class AgenteInmobiliario {
+    - idAgente : String
+    - comisionAcumulada : double
+    - propiedadesAsignadas : List<Propiedad>
+    + asignarPropiedad(p : Propiedad) : void
+    + sumarComision(c : Contrato) : double
+    + toString() : String
+}
+
+
+abstract class Propiedad {
+    - idPropiedad : String
+    - direccion : String
+    - precio : double
+    - estado : EstadoPropiedad
+    - agenteAsignado : AgenteInmobiliario
+    - clienteActual : Cliente
+    + cambiarEstado(e : EstadoPropiedad) : void
+    + toString() : String
+}
+
+class Casa {
+    - numHabitaciones : int
+    - tieneGaraje : boolean
+    + toString(): String
+}
+
+class Departamento {
+    - piso : int
+    - numHabitaciones : int
+    - tieneAscensor : boolean
+    + toString(): String
+}
+
+class Terreno {
+    - area : double
+    - tipoSuelo : String
+    + toString(): String
+}
+
+
+class Contrato {
+    - id : int
+    - cliente : Cliente
+    - agente : AgenteInmobiliario
+    - propiedad : Propiedad
+    - fechaInicio : LocalDate
+    - fechaFin : LocalDate
+    - monto : double
+    - tipo : TipoContrato
+    - activo : boolean
+    + getters()
+    + calcularComision(): double
+    + finalizarContrato() : void
+    + toString() : String
+}
+
+class Visita {
+    - id : int
+    - cliente : Cliente
+    - agente : AgenteInmobiliario
+    - propiedad : Propiedad
+    - fechaVisita : LocalDate
+    - horaVisita: LocalTime
+    - observaciones : String
+    + registrarObservacion(t : String) : void
+    + toString() : String
+}
+
+
+class Agencia {
+    - nombre : String
+    - propiedades : List<Propiedad>
+    - clientes : List<Cliente>
+    - agentes : List<AgenteInmobiliario>
+    - contratos : List<Contrato>
+    - visitas : List<Visita>
+    -contadorVisitas : int
+    + getters()
+    + registrarCliente(c : Cliente) : void
+    + buscarCliente(ci: String): Cliente
+    + registrarPropiedad(p : Propiedad) : void
+    + buscarPropiedad(idPropiedad: String): Propiedad
+    + listarPropiedadesPorEstado(estado: Propiedad): void
+    + listarPropiedadesPorTipo(tipo: String): void
+    + registrarAgente(a : AgenteInmobiliario) : void
+    + buscarAgente(idAgente: String): AgenteInmobiliario
+    + registrarContrato(c : Contrato) : void
+    + registrarVisita(v : Visita) : void
+    + listarVisitasPorCliente(ci: String): void
+    + mostrarPropiedadesDisponibles() : void
+    + generarReportePropiedadesVendidasYAlquiladas(): void
+    + calcularComisionesAgentes(): void
+    + toString(): String
+}
+
+
+Persona <|-- Cliente
+Persona <|-- AgenteInmobiliario
+
+Propiedad <|-- Casa
+Propiedad <|-- Departamento
+Propiedad <|-- Terreno
+
+Agencia "1" o-- "*" Propiedad
+Agencia "1" o-- "*" Cliente
+Agencia "1" o-- "*" AgenteInmobiliario
+Agencia "1" o-- "*" Contrato
+Agencia "1" o-- "*" Visita
+
+Cliente "1" --> "*" Visita
+AgenteInmobiliario "1" --> "*" Visita
+Propiedad "1" --> "*" Visita
+
+Cliente "1" --> "*" Contrato
+AgenteInmobiliario "1" --> "*" Contrato
+Propiedad "1" --> "*" Contrato
+
+Contrato --> TipoContrato
+Propiedad --> EstadoPropiedad
+
+@enduml
