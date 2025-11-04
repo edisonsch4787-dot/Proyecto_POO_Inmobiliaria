@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * <>plates/Classes/Class.java to edit this template
  */
-package proyectopoo_inmobiliaria;
+package proyectopoo_inmobiliaria.Codigo;
 import java.util.ArrayList;
 
 public class AgenteInmobiliario extends Persona {

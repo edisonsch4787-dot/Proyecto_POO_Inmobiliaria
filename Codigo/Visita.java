@@ -1,5 +1,5 @@
 
-package proyectopoo_inmobiliaria;
+package proyectopoo_inmobiliaria.Codigo;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
