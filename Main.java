@@ -66,7 +66,7 @@ public class Main {
         agencia.registrarCliente(c);
     }
 
-    // 2️⃣ Registrar Agente
+    
     private static void registrarAgente(Scanner sc, Agencia agencia) throws Exception {
         System.out.print("Ingrese ID Agente: ");
         String idAgente = sc.nextLine();
@@ -78,7 +78,7 @@ public class Main {
         agencia.registrarAgente(a);
     }
 
-    // 3️⃣ Registrar Propiedad
+    
     private static void registrarPropiedad(Scanner sc, Agencia agencia) throws Exception {
         System.out.println("Seleccione tipo de propiedad:");
         System.out.println("1. Casa");
@@ -123,7 +123,6 @@ public class Main {
         if (p1 != null) agencia.registrarPropiedad(p1);
     }
 
-    // 4️⃣ Asignar agente a propiedad
     private static void asignarAgente(Scanner sc, Agencia agencia) throws Exception {
         System.out.print("Ingrese ID del agente: ");
         String idAgente = sc.nextLine();
@@ -141,7 +140,6 @@ public class Main {
         System.out.println("✅ Propiedad asignada al agente correctamente.");
     }
 
-    // 5️⃣ Listar propiedades
     private static void listarPropiedades(Scanner sc, Agencia agencia) {
         System.out.print("¿Desea listar por estado o tipo? (E/T): ");
         String op = sc.nextLine().toUpperCase();
@@ -157,7 +155,7 @@ public class Main {
         }
     }
 
-    //Registar contrato
+   
     private static void registrarContrato(Scanner sc,Agencia agencia, TipoContrato tip) throws Exception {
         System.out.print("ID contrato: ");
         int id = Integer.parseInt(sc.nextLine());
@@ -181,7 +179,6 @@ public class Main {
         System.out.println("Contrato de " + tip + " registrado correctamente.");
     }
 
-    // 8️⃣ Agendar visita
     private static void agendarVisita(Scanner sc, Agencia agencia) throws Exception {
         System.out.print("CI del cliente: ");
         String ci = sc.nextLine();
@@ -204,23 +201,22 @@ public class Main {
         System.out.println("Visita agendada correctamente.");
     }
 
-    // 9️⃣ Listar visitas
+    
     private static void listarVisitasCliente(Scanner sc, Agencia agencia) {
         System.out.print("Ingrese CI del cliente: ");
         String ci = sc.nextLine();
         agencia.listarVisitasPorCliente(ci);
     }
 
-    // 🔟 Reporte
+    
     private static void generarReporte(Agencia agencia) {
         agencia.generarReportePropiedadesVendidasYAlquiladas();
     }
 
-    // 11️⃣ Comisiones
+   
     private static void calcularComisiones(Agencia agencia) {
         agencia.calcularComisionesAgentes();
     }
-    //Metodos Reporte
     
 }
 
