@@ -9,16 +9,16 @@ package proyectopoo_inmobiliaria;
  * @author Mafer
  */
 abstract class Persona {
-    private int id;
+    String id;
     private String nombre;
     private String ci;
     
-    public Persona(int id, String n, String ci){
+    public Persona(String id, String n, String ci){
         this.id=id;
         this.nombre=n;
         this.ci=ci;
     }
-    public int getId(){
+    public String getId(){
         return id;
     }
     public String getNombre(){
@@ -27,7 +27,7 @@ abstract class Persona {
     public String getCi(){
         return ci;
     }
-    public void setId(int i){
+    public void setId(String i){
         id=i;
     }
     public void setNombre(String n){

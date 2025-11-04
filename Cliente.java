@@ -12,7 +12,7 @@ public class Cliente extends Persona {
    private ArrayList<Visita> visitas;
    
 
-    public Cliente(int id, String n, String ci) {
+    public Cliente(String id, String n, String ci) {
         super(id, n, ci);
     }
 

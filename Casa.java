@@ -9,10 +9,10 @@ public class Casa extends Propiedad {
     private int numHab;
     private boolean tieneGarage;
 
-    public Casa(int numHab, int idP, String dir, double precio) {
+    public Casa(int numHab, String idP, String dir, double precio, boolean grg) {
         super(idP, dir, precio);
         this.numHab = numHab;
-        this.tieneGarage = false;
+        this.tieneGarage = grg;
     }
     public int getNumHabitaciones(){
         return numHab;

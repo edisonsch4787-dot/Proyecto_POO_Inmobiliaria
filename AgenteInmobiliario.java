@@ -9,7 +9,7 @@ public class AgenteInmobiliario extends Persona {
     private double comisionAcumulada;
     private ArrayList<Propiedad> propiedadesAsignadas;
 
-    public AgenteInmobiliario( int id, String n, String ci) {
+    public AgenteInmobiliario(String id, String n, String ci) {
         super(id, n, ci);
         this.comisionAcumulada = 0.0;
         this.propiedadesAsignadas = new ArrayList<>() ;
@@ -22,6 +22,10 @@ public class AgenteInmobiliario extends Persona {
     }
     public void sumarComision(double monto){
         comisionAcumulada+=monto;
+    }
+    @Override
+    public String getId(){
+        return id;
     }
     @Override
     public String toString(){

@@ -6,6 +6,11 @@ package proyectopoo_inmobiliaria;
 import java.time.LocalDate;
 
 public class Contrato {
+
+    Contrato(int id, Cliente cliente, Propiedad propiedad, AgenteInmobiliario agente, LocalDate now, Object object, double monto, proyectopoo_inmobiliaria.TipoContrato tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public enum TipoContrato{
         VENTA,
         ALQUILER
@@ -20,17 +25,55 @@ public class Contrato {
     private TipoContrato tipo;
     private boolean activo;
 
-    public Contrato(int id, Cliente cliente, Propiedad propiedad, LocalDate fechaInicio,
-                    LocalDate fechaFin, double monto, TipoContrato tipo) {
+    public Contrato(int id, Cliente cliente, Propiedad propiedad, AgenteInmobiliario agente,
+                LocalDate fechaInicio, LocalDate fechaFin, double monto, TipoContrato tipo) {
         this.id = id;
         this.cliente = cliente;
         this.propiedad = propiedad;
+        this.agente= agente;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.monto = monto;
         this.tipo = tipo;
         this.activo = true;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public AgenteInmobiliario getAgente() {
+        return agente;
+    }
+
+    public Propiedad getPropiedad() {
+        return propiedad;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public TipoContrato getTipo() {
+        return tipo;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+    
     public double calcularComision(){
         double comision=propiedad.getPrecio();
         if(TipoContrato.VENTA.equals(tipo)){

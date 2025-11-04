@@ -12,7 +12,7 @@ public class Terreno extends Propiedad{
     private double area;
     private String tipoSuelo;
 
-    public Terreno(double area, String tipoSuelo, int idPropiedad, String direccion, double precio) {
+    public Terreno(double area, String tipoSuelo, String idPropiedad, String direccion, double precio) {
         super(idPropiedad, direccion, precio);
         this.area = area;
         this.tipoSuelo = tipoSuelo;
@@ -21,7 +21,7 @@ public class Terreno extends Propiedad{
     public double getArea() {
         return area;
     }
-
+    
     public String getTipoSuelo() {
         return tipoSuelo;
     }

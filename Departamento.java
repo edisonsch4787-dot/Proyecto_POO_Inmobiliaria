@@ -9,11 +9,11 @@ public class Departamento extends Propiedad{
     private int numHabitaciones;
     private boolean tieneAscensor;
     
-    public Departamento(int p, int Habs, int idP, String dir, double precio){
+    public Departamento(int p, int Habs, String idP, String dir, double precio, boolean asc){
         super(idP,dir,precio);
         this.piso=p;
         this.numHabitaciones=Habs;
-        this.tieneAscensor=false;
+        this.tieneAscensor=asc;
     }
     
     public int getPiso(){

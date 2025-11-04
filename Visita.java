@@ -30,6 +30,9 @@ public class Visita {
             System.out.println("Id ingresado no valido");
         }
     }
+    public Cliente getCliente(){
+        return cliente;
+    }
     @Override
     public String toString(){
         return "Visita ID: "+id+
