@@ -9,7 +9,9 @@ Permite registrar información, agendar visitas, realizar contratos de venta o a
 Tecnologías utilizadas
 ---
 Lenguaje: Java 17+.
+
 IDE utilizado: NetBeans.
+
 Librerías estándar de Java (java.time, java.util).
 
 Estructura general
