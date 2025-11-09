@@ -8,18 +8,24 @@ Permite registrar información, agendar visitas, realizar contratos de venta o a
 
 Tecnologías utilizadas
 ---
--Lenguaje: Java 17+
--IDE utilizado: NetBeans
--Librerías estándar de Java (java.time, java.util)
+Lenguaje: Java 17+.
+IDE utilizado: NetBeans.
+Librerías estándar de Java (java.time, java.util).
 
 Estructura general
 ----
--Agencia: gestiona clientes, agentes, propiedades, contratos y visitas.
--Persona: clase base para Cliente y AgenteInmobiliario.
--Propiedad: clase padre de Casa, Departamento y Terreno.
--Contrato: maneja contratos de venta o alquiler.
--Visita: agenda visitas con fecha y hora (LocalDate y LocalTime).
--Enums: TipoContrato, EstadoPropiedad.
+Agencia: gestiona clientes, agentes, propiedades, contratos y visitas.
+
+Persona: clase base para Cliente y AgenteInmobiliario.
+
+Propiedad: clase padre de Casa, Departamento y Terreno.
+
+Contrato: maneja contratos de venta o alquiler.
+
+Visita: agenda visitas con fecha y hora (LocalDate y LocalTime).
+
+Enums: TipoContrato, EstadoPropiedad.
+
 
 Instrucciones de ejecución
 ---
